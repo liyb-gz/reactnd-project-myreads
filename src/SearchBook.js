@@ -18,6 +18,8 @@ export class SearchBook extends Component {
 
   render() {
     const { searchResult } = this.state;
+    const { onChangeShelf } = this.props;
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -26,7 +28,10 @@ export class SearchBook extends Component {
           </Link>
           <SearchBookInput updateSearchResult={this.updateSearchResult} />
         </div>
-        <SearchBookResults searchResult={searchResult} />
+        <SearchBookResults
+          searchResult={searchResult}
+          onChangeShelf={onChangeShelf}
+        />
       </div>
     );
   }

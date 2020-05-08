@@ -1,7 +1,7 @@
 import React from "react";
 
 function Book(props) {
-  const { book } = props;
+  const { book, onChangeShelf } = props;
   return (
     <li>
       <div className="book">
@@ -18,7 +18,13 @@ function Book(props) {
             alt={book.title}
           />
           <div className="book-shelf-changer">
-            <select>
+            <select
+              value={book.shelf || "none"}
+              onChange={(e) => {
+                const newShelf = e.target.value;
+                onChangeShelf(book, newShelf);
+              }}
+            >
               <option value="move" disabled>
                 Move to...
               </option>

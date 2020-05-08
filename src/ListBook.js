@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Bookshelf from "./Bookshelf";
 
 export class ListBook extends Component {
+  // Bookshelves are not state: they do not change over time
   bookshelves = [
     {
       name: "Currently Reading",
@@ -18,7 +19,7 @@ export class ListBook extends Component {
     },
   ];
   render() {
-    const { books } = this.props;
+    const { books, onChangeShelf } = this.props;
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -31,6 +32,7 @@ export class ListBook extends Component {
                 key={bookshelf.id}
                 books={books.filter((book) => book.shelf === bookshelf.id)}
                 shelf={bookshelf}
+                onChangeShelf={onChangeShelf}
               />
             ))}
           </div>
