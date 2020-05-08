@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
+import Book from "./Book";
+
 import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 
@@ -14,6 +16,7 @@ class BooksApp extends React.Component {
     });
   }
   render() {
+    const { books } = this.state;
     return (
       <div className="app">
         <Route
@@ -56,6 +59,9 @@ class BooksApp extends React.Component {
                     <h2 className="bookshelf-title">Currently Reading</h2>
                     <div className="bookshelf-books">
                       <ol className="books-grid">
+                        {books.map((book) => (
+                          <Book book={book} />
+                        ))}
                         <li>
                           <div className="book">
                             <div className="book-top">
