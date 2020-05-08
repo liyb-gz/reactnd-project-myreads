@@ -10,9 +10,11 @@ function Book(props) {
             className="book-cover"
             style={{
               width: 128,
-              //   backgroundImage: `url(${book.imageLinks.smallThumbnail})`,
             }}
-            src={book.imageLinks.smallThumbnail}
+            src={
+              // For books that has no image links, use the default book icon
+              book.imageLinks ? book.imageLinks.smallThumbnail : "./book.png"
+            }
             alt={book.title}
           />
           <div className="book-shelf-changer">
@@ -28,7 +30,9 @@ function Book(props) {
           </div>
         </div>
         <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.authors.join(", ")}</div>
+        <div className="book-authors">
+          {book.authors && book.authors.join(", ")}
+        </div>
       </div>
     </li>
   );
