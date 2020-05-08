@@ -18,7 +18,7 @@ export class SearchBook extends Component {
 
   render() {
     const { searchResult } = this.state;
-    const { onChangeShelf } = this.props;
+    const { books, onChangeShelf } = this.props;
 
     return (
       <div className="search-books">
@@ -29,6 +29,7 @@ export class SearchBook extends Component {
           <SearchBookInput updateSearchResult={this.updateSearchResult} />
         </div>
         <SearchBookResults
+          books={books}
           searchResult={searchResult}
           onChangeShelf={onChangeShelf}
         />

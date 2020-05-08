@@ -40,6 +40,7 @@ class BooksApp extends React.Component {
           path="/search"
           render={({ history }) => (
             <SearchBook
+              books={books}
               onChangeShelf={(book, shelf) => {
                 this.changeBookShelf(book, shelf);
                 history.push("/");
